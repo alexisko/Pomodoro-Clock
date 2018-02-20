@@ -4,6 +4,7 @@ $(document).ready(function() {
   var breakLength = 5;
   var min = sessionLength, sec = 0, timer;
 
+  /* Starts the timer with the given length of time */
   function startTimer() {
     timer = setTimeout(startTimer, 1000);
     if(min === 0 & sec === 0) {
@@ -24,10 +25,12 @@ $(document).ready(function() {
     }
   }
 
+  /* Formats the given minutes and seconds and sets the #timer div */
   function formatTime(min, sec) {
     $('#timer').html(((min < 10) ? "0" + min : min) + ":" + ((sec < 10) ? "0" + sec : sec));
   }
 
+  /* Enables or disables the session length setting buttons */
   function areSettingsDisabled(boolean) {
     $('#session-plus').prop("disabled", boolean);
     $('#session-minus').prop("disabled", boolean);
@@ -44,7 +47,7 @@ $(document).ready(function() {
 
   $('#reset-btn').click(function() {
     clearTimeout(timer);
-    min = sessionLength;
+    min = sessionLength; // resets the timer to the original session length
     sec = 0;
     formatTime(min, sec);
     areSettingsDisabled(false);
