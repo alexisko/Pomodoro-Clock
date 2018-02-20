@@ -2,23 +2,29 @@
 <html>
 <head>
   <title></title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <header>POMODORO CLOCK</header>
   <div class="container">
     <div class="timer-container">
-      <button id="session-plus">+</button>
+      <button id="session-plus">
+        <i class="fa fa-chevron-up fa-3x"></i>
+      </button>
       <div id="timer">25:00</div>
-      <button id="session-minus">-</button>
+      <button id="session-minus">
+        <i class="fa fa-chevron-down fa-3x"></i>
+      </button>
     </div>
     <div class="btns">
-      <button id="start-btn">START</button>
-      <button id="stop-btn">STOP</button>
-      <button id="reset-btn">RESET</button>
+      <button class="green" id="start-btn">START</button>
+      <button class="red" id="stop-btn">STOP</button>
+      <button class="blue" id="reset-btn">RESET</button>
     </div>
   </div>
-  <footer>by Alexis.</footer>
+  <footer>made with love, by <a href="https://github.com/alexisko">alexisko.</a></footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/c384233445.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

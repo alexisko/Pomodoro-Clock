@@ -2,6 +2,7 @@ $(document).ready(function() {
   // global variables
   var sessionLength = 25;
   var breakLength = 5;
+  var sessionOn = false;
   var min = sessionLength, sec = 0, timer;
 
   /* Starts the timer with the given length of time */
@@ -12,6 +13,7 @@ $(document).ready(function() {
       formatTime(min, sec);
       clearTimeout(timer);
       areSettingsDisabled(false);
+      sessionOn = false;
     } else {
       // timer is still running
       if(min > 0 && sec === 0) {
@@ -37,12 +39,18 @@ $(document).ready(function() {
   }
 
   $('#start-btn').click(function() {
-    startTimer();
+    if(!sessionOn) {
+      sessionOn = true;
+      startTimer();
+    }
     areSettingsDisabled(true);
   });
 
   $('#stop-btn').click(function() {
-    clearTimeout(timer);
+    if(sessionOn) {
+      sessionOn = false;
+      clearTimeout(timer);
+    }
   });
 
   $('#reset-btn').click(function() {
